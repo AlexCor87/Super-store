@@ -9,19 +9,34 @@ const inventory = [
   { id: 8, name: "sourdough", price: 5.5, category: "grains", quantity: 81 },
 ];
 
-function logNames(items) {}
+function logNames(items) {
+  items.forEach((item) => console.log(item.name));
+}
 
-function getUppercaseNames(items) {}
+function getUppercaseNames(items) {
+  return items.map((item) => item.name.toUpperCase());
+}
 
-function getItemById(items, id) {}
+function getItemById(items, id) {
+  return items.find((item) => item.id === id);
+}
 
-function getItemPriceByName(items, name) {}
+function getItemPriceByName(items, name) {
+  const foundItem = items.find((item) => item.name === name);
+  return foundItem ? foundItem.price : "Item not found";
+}
 
-function getItemsByCategory(items, category) {}
+function getItemsByCategory(items, category) {
+  return items.filter((item) => item.category === category);
+}
 
-function countItems(items) {}
+function countItems(items) {
+  return items.reduce((total, item) => total + item.quantity, 0);
+}
 
-function getTotalPrice(items) {}
+function getTotalPrice(items) {
+  return items.reduce((total, item) => total + item.price * item.quantity, 0);
+}
 
 console.log("Welcome! We carry the following items:");
 logNames(inventory);
